@@ -1,0 +1,187 @@
+====== root ======
+创建日期 星期日 14 五月 2017
+
+	1  passwd 
+	2  echo fuyaopc>/etc/hostname
+	3  nano /etc/locale.gen 
+	4  locale-gen 
+	5  nano /etc/mkinitcpio.conf 
+	6  mkinitcpio -p linux
+	7  grub-install /dev/sda
+	8  grub-mkconfig -o /boot/grub/grub.cfg
+	9  pacamn -S dialog wpa_supplicant wpa_actiond net_tools ifplugd 
+   10  pacman -S dialog wpa_supplicant wpa_actiond net_tools ifplugd 
+   11  pacman -S dialog wpa_supplicant wpa_actiond net-tools ifplugd 
+   12  exit
+   13  df -h
+   14  pacman -Syu
+   15  find / -name netctl
+   16  ls /etc/netctl/
+   17  wifi-menu
+   18  ls /etc/netctl/
+   19  netctl enable w1p1s0-NERGEAR76-5G
+   20  netctl enable wlp1s0-NERGEAR76-5G
+   21  netctl enable w1p1s0-NETGEAR76-5G
+   22  netctl enable wlp1s0-NETGEAR76-5G
+   23  reboot
+   24  pacman -Syu
+   25  pacman -S xorg
+   26  pacman -S xorg-server-utils
+   27  pacman -S xorg-server-utils xorg
+   28  pacman -S xorg-server-utils xorg xorg-utils
+   29  pacman -S xorg-server-utils xorg xorg-utils xorg-xinit xorg-server xorg-xclock alsa-utils
+   30  pacman -S xorg-server-utils xorg-utils xorg-xinit xorg-server xorg-xclock alsa-utils
+   31  pacman -S xorg-server-utils xorg-utils xorg-xinit xorg-server xorg-xclock alsa-utils xterm
+   32  pacman -S xorg-server-utils xorg-utils xorg-xinit xorg-server xorg-xclock alsa-utils xterm xorg-twm xorg
+   33  pacman -S xorg-server-utils xorg-utils xorg-xinit xorg-server xorg-xclock  xterm xorg-twm xorg
+   34  pacman -S xorg-server-utils xorg-utils xorg-xinit xorg-server xorg-xclock alsa-utils xterm xorg-twm xorg
+   35  pacman -S cinnamon
+   36  systemctl enable lightgdm
+   37  pacman -S lightgdm
+   38  pacman -S lightdm
+   39  systemctl enable lightdm
+   40  useradd -m fuyao
+   41  usermod -aG wheel,video,audio,lp,log,optical,scanner,games,users,storage,power fuyao
+   42  reboot
+   43  startx
+   44  firefox
+   45  pacman -S firefox
+   46  firefox &
+   47  systemctl status lightdm
+   48  pacman -S libxul
+   49  pacman -Ss xul
+   50  pacman -S xulrunner
+   51  pacman -Syu
+   52  pacman -Syu
+   53  pacman -Syu
+   54  reboot
+   55  exit
+   56  firefox
+   57  pacman -Syu
+   58  startx
+   59  exec cinnamon-session
+   60  pacman -Syu
+   61  pacman -R lightdm
+   62  pacman -S lightdm
+   63  pacman -S lightdm-gtk-greeter
+   64  echo exec cinnamon-session>/home/fuyao/.xinitrc
+   65  nano /home/fuyao/.xinitrc 
+   66  pacman -S xinit
+   67  pacman -S xorg-xinit
+   68  reboot
+   69  firefox
+   70  startx
+   71  passwd fuyao
+   72  pacman -S wqy-zenhei
+   73  pacman -Ss firefox
+   74  pacman -S terminal
+   75  pacman -S ter
+   76  pacman -Ss terminal
+   77  pacman -S guake
+   78  guake
+   79  top
+   80  pacman -S firefox-i18n-zh-cn
+   81  reboot
+   82  locale
+   83  locale -a
+   84  localectl set-locale LANG=zh_CN.utf8
+   85  reboot
+   86  locale-gen 
+   87  locale -a
+   88  locale
+   89  pacman -S gnome-terminal 
+   90  nano /etc/pacman.conf 
+   91  pacman -Syu
+   92  pacman -S yaourt
+   93  pacman -S jdk
+   94  java -version
+   95  pacman -S docker
+   96  pacman -S docker
+   97  pacman -S git
+   98  pacman -S gcc
+   99  pacman -S dbeaver
+  100  pacman -S dbeaver
+  101  pacman -S mysql
+  102  mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+  103  /usr/bin/mysql_secure_installation
+  104  systemctl enable docker
+  105  systemctl start docker
+  106  docker search oracle
+  107  docker pull wnameless/oracle-xe-11g
+  108  docker pull ubuntu
+  109  docker images
+  110  systemctl start mysqld
+  111  systemctl enable mysqld
+  112  pacman -Ss eclipse
+  113  pacman -S eclipse-java
+  114  df -h
+  115  pacman -Ss flassh
+  116  pacman -Ss flash
+  117  pacman -S flashplugin
+  118  mount /dev/sda1 /mnt/
+  119  cd /mnt/
+  120  btrfs subvolume create tmpfs
+  121  cd tmpfs/
+  122  cp -a /tmp/* .
+  123  nano /etc/fstab 
+  124  mount -a
+  125  ls
+  126  df
+  127  df -h
+  128  exit
+  129  find / -name hadoop
+  130  find / -name hadoop*
+  131  find / -name hadoop*
+  132  rm /tmp/yaourt-tmp-fuyao/aur-hadoop/hadoop-2.8.0.tar.gz.part
+  133  cp /home/fuyao/下载/hadoop-2.8.0.tar.gz /tmp/yaourt-tmp-fuyao/aur-hadoop/
+  134  cat /tmp/yaourt-tmp-fuyao/aur-hadoop/hadoop.install
+  135  find / -name hbase.install
+  136  nano /tmp/yaourt-tmp-fuyao/aur-hbase/hbase.install
+  137  sha256sum /tmp/yaourt-tmp-fuyao/aur-hbase/hbase-1.2.5-bin.tar.gz 
+  138  cat /tmp/yaourt-tmp-fuyao/aur-hbase/hbase-site.xml 
+  139  top
+  140  find / -name hbase
+  141  nano /etc/hbase/hbase-env.sh 
+  142  . /etc/hbase/hbase-env.sh 
+  143  nano /etc/hbase/hbase-env.sh 
+  144  sha256sum /tmp/yaourt-tmp-fuyao/aur-apache-spark/spark-2.1.1-bin-hadoop2.7.tgz 
+  145  sha1sum /tmp/yaourt-tmp-fuyao/aur-apache-spark/spark-2.1.1-bin-hadoop2.7.tgz 
+  146  pacman -S rsync
+  147  pacman -S r
+  148  nano /etc/hadoop/hadoop-env.sh
+  149  hadoop 
+  150  hadoop fs ls 
+  151  hadoop fs -ls
+  152  pacman -S scala
+  153   pacman -S ibus ibus-pinyin
+  154  nano /etc/profile
+  155  . /etc/profile
+  156  nano /etc/profile
+  157  . /etc/profile
+  158  git config --global user.email "397400733@qq.com"
+  159  git config --global user.name "fuyao2006"
+  160  git ststus
+  161  git status
+  162  pacman -S vlc
+  163  pacman -S filezilla
+  164  pacman -S audacious
+  165  pacman -S mpg123 fluidsynth wavpack lirc libmtp neon libmms libcue
+  166  pacman -Ss transsmision
+  167  pacman -Ss transmision
+  168  pacman -Ss transm
+  169  pacman -S transmission-gtk
+  170  pacman -S transmission-qt
+  171  pacman -S transmission-gtk
+  172  pacman -S gqview
+  173  pacman -Ss gqview
+  174  pacman -Ss view
+  175  pacman -S thunderbird thunderbird-i18n 
+  176  pacman -S thunderbird
+  177  pacman -Ss thunderbird
+  178  pacman -S thunderbird-i18n-zh-cn
+  179  pacman -S zim
+  180  find / -name git |grep zim
+  181  find / -name git* |grep zim
+  182  find / -name master
+  183  exit
+  184  history

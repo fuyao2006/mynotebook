@@ -1,0 +1,132 @@
+====== fuyao ======
+创建日期 星期日 14 五月 2017
+
+	1  su -
+	2  pacman -Ss firefox
+	3  pacman -S firefox-i18n-zh-cn
+	4  su -
+	5  su -
+	6  su -
+	7  su -
+	8  su -
+	9  su -
+   10  nano /etc/pacman.conf 
+   11  yaourt -S google-chrome
+   12  yaourt -S wps
+   13  yaourt -Ss wps
+   14  yaourt -S wps-office
+   15  su -
+   16  su -
+   17  top
+   18  df -h
+   19  su -
+   20  yaourt -Ss hadoop
+   21  yaourt -S hadoop hbase
+   22  yaourt -S hadoop hbase
+   23  cd /tmp/
+   24  ls
+   25  mount /dev/sda1 /mnt/
+   26  su -
+   27  yaourt -S hadoop hbase
+   28  reboot
+   29  top
+   30  df -h
+   31  su -
+   32  yaourt -S hadoop hbase
+   33  hbase
+   34  hbase
+   35  haddoop
+   36  hadoop
+   37  nano /etc/hadoop/hadoop-env.sh 
+   38  su -
+   39  echo JAVA
+   40  which java
+   41  ls /usr/bin/java -l
+   42  java -version
+   43  find / -name java
+   44  yaourt -Ss hive
+   45  yaourt -S hive
+   46  yaourt -Ss spark
+   47  yaourt -S apache-spark
+   48  spark
+   49  spark
+   50  find / -name spark
+   51  yaourt -S pig
+   52  yaourt -Ss pig
+   53  yaourt -Ss ZooKeeper
+   54  yaourt -S ZooKeeper
+   55  yaourt -S zookeeper
+   56  su -
+   57  su -1
+   58  su -
+   59  pacman -S ibus ibus-pinyin
+   60  su -
+   61  su -
+   62  yaourt -sS gqview
+   63  yaourt -S gqview-devel
+   64  pacman -Ss mybase
+   65  yaourt -Ss mybase
+   66  git
+   67  mkdir /home/fuyao/gitcollect
+   68  cd /home/fuyao/gitcollect/
+   69  git init
+   70  cd /～
+   71  cd ～
+   72  cd ~
+   73  pwd
+   74  ssh-keygen -t rsa -C "397400733@qq.com"
+   75  nano ~/.ssh/id_rsa.pub 
+   76  cat ~/.ssh/id_rsa.pub 
+   77  ssh https://github.com/fuyao2006/fuyao_dellpc.git
+   78  ssh
+   79  cd gitcollect/
+   80  su -
+   81  su -
+   82  cd gitcollect/
+   83  ls
+   84  ls -a
+   85  git remote add origin https://github.com/fuyao2006/fuyao_dellpc.git
+   86  nano aaa
+   87  git status
+   88  git  add aaa
+   89  git status
+   90  git commit -m "ceshi"
+   91  git config --global user.email "397400733@qq.com"
+   92  git config --global user.name "fuyao2006"
+   93  git commit -m "ceshi"
+   94  git status
+   95  ls
+   96  git push -u origin master
+   97  mkdir hadoop
+   98  git status
+   99  cd hadoop/
+  100  ls
+  101  nano bbb
+  102  git status
+  103  git add bbb
+  104  git status
+  105  git commit -m "ceshi2"
+  106  git status
+  107  git push -u origin master
+  108  git status
+  109  cd ~
+  110  git status
+  111  cd gitcollect/
+  112  git status
+  113  ls
+  114  find / -name git
+  115  find / -name git |grepzim
+  116  find / -name git |grep zim
+  117  sudo find / -name git |grep zim
+  118  su -
+  119  cd ~
+  120  cd Notebooks/
+  121  git status
+  122  cd Notes/
+  123  git status
+  124  git remote add origin https://github.com/fuyao2006/mynotebook.git
+  125  git push -u origin master
+  126  pwd
+  127  git status
+  128  git push  origin master
+  129  history
