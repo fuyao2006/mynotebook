@@ -1,0 +1,20 @@
+ssh-keygen -t rsa -P '' -C "397400733@qq.com"
+-C 加注释
+
+git clone https://github.com/fuyao2006/mynotebook
+cd mynotebook
+git init
+
+git remote 显示远程库
+git remote -v
+
+
+添加远程库
+git remote add origin git@github.com:michaelliao/learngit.git
+
+git fetch origin 添加远程有本地没有的
+
+git push origin master 将本地的分支master 推送到远程库origin
+
+git remote show origin 显示远程库信息
+git remote rename origin mynotebook 重命名
