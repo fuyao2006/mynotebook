@@ -18,3 +18,6 @@ git push origin master 将本地的分支master 推送到远程库origin
 
 git remote show origin 显示远程库信息
 git remote rename origin mynotebook 重命名
+
+git add 文件
+git commit -m "注释"
