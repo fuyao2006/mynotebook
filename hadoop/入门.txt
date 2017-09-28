@@ -1,7 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
 ====== 入门 ======
 创建日期 星期日 14 五月 2017
 
-你好
+你好vnbbnbnbvbnb
 
 
 
