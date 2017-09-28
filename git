@@ -14,11 +14,15 @@ git remote add origin git@github.com:michaelliao/learngit.git
 
 git fetch origin 添加远程有本地没有的
 
+git push -u origin master 第一次推送
 git push origin master 将本地的分支master 推送到远程库origin
 
 git remote show origin 显示远程库信息
 git remote rename origin mynotebook 重命名
 
+git remote rm origin 删除
+
+修改文件后
 git add 文件
 git commit -a -m "注释"
 
