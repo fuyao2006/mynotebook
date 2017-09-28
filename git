@@ -28,3 +28,5 @@ git commit -a -m "注释"
 你可以用 git remote rm origin 命令删除远程分支 然后在选择重新用 git 
 remote add origin git@github.com:xuefengyang /test.git 
 命令添加远程仓库。 
+
+注意用户名前的冒号
