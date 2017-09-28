@@ -25,6 +25,7 @@ git remote rm origin 删除
 修改文件后
 git add 文件
 git commit -a -m "注释"
+git rm 文件
 
 在本地创建本地仓库与远程仓库（比如github）同步时，当我们通过git push 
 命令推送更新到远程时，总是让我输入账号密码。
