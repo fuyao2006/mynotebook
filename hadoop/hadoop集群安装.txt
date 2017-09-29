@@ -19,6 +19,9 @@ Creation-Date: 2017-09-29T19:54:52+08:00
 <description>The FileSystem for hdfs: uris.</description>
 </property>
 
+以下3条参考：www.jianshu.com/p/ce69b9c21f1d
+
+
 2.修改core-site.xml
 <property> 
 <name>hadoop.tmp.dir</name> 
