@@ -5,3 +5,56 @@ Creation-Date: 2017-09-29T19:54:52+08:00
 ====== hadoop集群安装 ======
 创建日期 星期五 29 九月 2017
 
+1.MapReduce任务报No FileSystem for scheme: hdfs错误
+ 通过配置core-site.xml，加入以下内容：
+<property>
+<name>fs.file.impl</name>
+<value>org.apache.hadoop.fs.LocalFileSystem</value>
+<description>The FileSystem for file: uris.</description>
+</property>
+
+<property>
+<name>fs.hdfs.impl</name>
+<value>org.apache.hadoop.hdfs.DistributedFileSystem</value>
+<description>The FileSystem for hdfs: uris.</description>
+</property>
+
+2.修改core-site.xml
+<property> 
+<name>hadoop.tmp.dir</name> 
+<value>file:/usr/local/hadoop/tmp</value>
+<description>Abase for other temporary directories.</description>
+</property>
+
+ <property>
+ <name>fs.defaultFS</name> 
+<!-- 修改localhost为master--> 
+<value>hdfs://master:9000</value> 
+</property>
+
+3.修改mapred-site.xml
+<configuration> 
+<!--新框架支持第三方 MapReduce 开发框架以支持如 SmartTalk/DGSG 等非 Yarn 架构，注意通常情况下这个配置的值都设置为 Yarn，如果没有配置这项，那么提交的 Yarn job 只会运行在 locale 模式，而不是分布式模式。--> 
+<property> 
+<name>mapreduce.framework.name</name>
+ <value>yarn</value>
+ </property>
+
+ <!--添加此属性以便远程创建MapReduce Job使用--> 
+<property> 
+<name>mapreduce.jobtracker.address</name> 
+<value>master:9001</value> 
+</property> 
+
+</configuration>
+
+3.修改yarn-site.xml
+<configuration> 
+<!-- Site specific YARN configuration properties --> 
+<property> 
+<name>yarn.nodemanager.aux-services</name> 
+<value>mapreduce_shuffle</value> 
+</property> 
+</configuration>
+
+
