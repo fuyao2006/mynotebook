@@ -1,0 +1,126 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-09-29T21:35:06+08:00
+
+====== hdfs-site ======
+创建日期 星期五 29 九月 2017
+
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+
+
+<!--指定DataNode存储block的副本数量-->
+	<property>
+		<name>dfs.replication</name>
+		<value>3</value>
+
+	</property>
+
+
+<!--这里抽象出两个NameService实际上就是给这个HDFS集群起了个别名-->
+	<property>
+		<name>dfs.nameservices</name>
+		<value>mycluster</value>
+
+	</property>
+
+
+<！--指定NameService是cluster1时的namenode有哪些,这里的值也是逻辑名称，名字随便起，相互不重复即可-->
+	<property>
+	  <name>dfs.ha.namenodes.mycluster</name>
+	  <value>nn1,nn2</value>
+
+	</property>
+
+
+<!--指定nn1,nn2的RPC地址-->
+	<property>
+	  <name>dfs.namenode.rpc-address.mycluster.nn1</name>
+	  <value>hadoop-senior01.beifeng.com:8020</value>
+	</property>
+	<property>
+	  <name>dfs.namenode.rpc-address.mycluster.nn2</name>
+	  <value>hadoop-senior03.beifeng.com:8020</value>
+
+	</property>
+
+
+<！---指定nn1、nn2的http地址->
+		<property>
+		<name>dfs.namenode.http-address.mycluster.nn1</name>
+		<value>hadoop-senior01.beifeng.com:50070</value>
+	</property>
+	<property>
+	  <name>dfs.namenode.http-address.mycluster.nn2</name>
+	  <value>hadoop-senior03.beifeng.com:50070</value>
+
+	</property>
+
+<!--解释：hadoop 守护进程一般同时运行RPC
+和HTTP两个服务器，RPC服务器支持守护进程间的通信，HTTP服务器则提供与用户交互的Web页面。-->
+
+
+
+<!--指定cluster1的两个NameNode共享edits文件目录时，使用的JournalNode集群信息-->
+	<property>
+	  <name>dfs.namenode.shared.edits.dir</name>
+	  <value>qjournal://hadoop-senior01.beifeng.com:8485;hadoop-senior03.beifeng.com:8485;hadoop-senior04.beifeng.com:8485/mycluster</value>
+
+	</property>
+
+
+<!--指定cluster1出故障时，哪个实现类负责执行故障切换-->
+	<property>
+	  <name>dfs.client.failover.proxy.provider.mycluster</name>
+	  <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+
+	</property>
+
+
+<!--一旦需要NameNode切换，使用ssh方式进行操作-->
+	<property>
+	  <name>dfs.ha.fencing.methods</name>
+	  <value>sshfence</value>
+
+	</property>
+
+
+<!--如果使用ssh进行故障切换，使用ssh通信时用的密钥存储的位置-->
+	<property>
+	  <name>dfs.ha.fencing.ssh.private-key-files</name>
+	  <value>/home/beifeng/.ssh/id_rsa</value>
+
+	</property>
+
+
+<!--指定JournalNode集群在对NameNode的目录进行共享时，自己存储数据的磁盘路径-->
+	<property>
+	  <name>dfs.journalnode.edits.dir</name>
+	  <value>/opt/modules/hadoop-2.5.0/data/jn</value>
+
+	</property>
+
+
+<!--指定是否启动自动故障恢复，即当NameNode出故障时，是否自动切换到另一台NameNode-->
+	<property>
+	   <name>dfs.ha.automatic-failover.enabled</name>
+	   <value>true</value>
+	 </property>
+</configuration>
