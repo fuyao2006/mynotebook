@@ -1,0 +1,19 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-09-29T22:17:38+08:00
+
+====== ssh安装与配置 ======
+创建日期 星期五 29 九月 2017
+
+安装ssh
+启动sshd 服务
+
+namenode生成密钥：
+
+$ ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa  -C  “397400733@qqcom”
+
+将master结点上的~/.ssh/id_dsa.pub的内容，添加到slave及master结点的~/.ssh/authorized_keys这个文件中
+
+scp ~/.ssh/id_dsa.pub hadoop@122.205.135.212:~/.ssh/authorized_keys
+密码是hadoop 在对应ip电脑的密码
+注意ssh 默认是不能用root登录的
