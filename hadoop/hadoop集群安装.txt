@@ -5,6 +5,8 @@ Creation-Date: 2017-09-29T19:54:52+08:00
 ====== hadoop集群安装 ======
 创建日期 星期五 29 九月 2017
 
+-
+
 1.MapReduce任务报No FileSystem for scheme: hdfs错误
  通过配置core-site.xml，加入以下内容：
 <property>
@@ -86,5 +88,13 @@ Creation-Date: 2017-09-29T19:54:52+08:00
 <name>dfs.permissions</name>
 <value>false</value>
 </property>
+
+5.修改主机名：
+
+修改/etc/host、hostname文件，注意请在host文件中一并添加hadoopnode1机器的IP地址。
+
+10.10.11.225 Hadoop-host
+10.10.11.254 hadoopnode1
+::1         localhost
 
 
