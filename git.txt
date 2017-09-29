@@ -1,0 +1,37 @@
+ssh-keygen -t rsa -P '' -C "397400733@qq.com"
+-C 加注释
+
+git clone https://github.com/fuyao2006/mynotebook
+cd mynotebook
+git init
+
+git remote 显示远程库
+git remote -v
+
+
+添加远程库
+git remote add origin git@github.com:michaelliao/learngit.git
+
+git fetch origin 添加远程有本地没有的
+
+git push -u origin master 第一次推送
+git push origin master 将本地的分支master 推送到远程库origin
+
+git remote show origin 显示远程库信息
+git remote rename origin mynotebook 重命名
+
+git remote rm origin 删除
+
+修改文件后
+git add 文件
+git commit -a -m "注释"
+git rm 文件
+
+在本地创建本地仓库与远程仓库（比如github）同步时，当我们通过git push 
+命令推送更新到远程时，总是让我输入账号密码。
+
+你可以用 git remote rm origin 命令删除远程分支 然后在选择重新用 git 
+remote add origin git@github.com:xuefengyang /test.git 
+命令添加远程仓库。 
+
+注意用户名前的冒号
