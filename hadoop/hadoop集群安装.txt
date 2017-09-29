@@ -37,6 +37,11 @@ Creation-Date: 2017-09-29T19:54:52+08:00
 <value>hdfs://master:9000</value> 
 </property>
 
+<property>    
+		 <name>io.file.buffer.size</name>    
+		 <value>131072</value>    
+	</property>  
+
 3.修改mapred-site.xml
 <configuration> 
 <!--新框架支持第三方 MapReduce 开发框架以支持如 SmartTalk/DGSG 等非 Yarn 架构，注意通常情况下这个配置的值都设置为 Yarn，如果没有配置这项，那么提交的 Yarn job 只会运行在 locale 模式，而不是分布式模式。--> 
@@ -84,17 +89,26 @@ Creation-Date: 2017-09-29T19:54:52+08:00
 <name>dfs.replication</name>
 <value>1</value>
 </property>
+
+	<property>    
+			 <name>dfs.webhdfs.enabled</name>    
+			 <value>true</value>    
+		</property>   
+
+
 <property>
 <name>dfs.permissions</name>
 <value>false</value>
 </property>
 
-5.修改主机名：
+5.修改主机名：修改hostname文件
 
-修改/etc/host、hostname文件，注意请在host文件中一并添加hadoopnode1机器的IP地址。
+修改/etc/host，注意请在host文件中一并添加hadoopnode1机器的IP地址。
 
 10.10.11.225 Hadoop-host
 10.10.11.254 hadoopnode1
 ::1         localhost
 
-
+修改slaves
+在slaves文件中添加你的节点ip或者host：每行一个主机名或ip
+YARN001
