@@ -104,7 +104,9 @@ Creation-Date: 2017-09-29T19:54:52+08:00
 <name>dfs.namenode.name.dir</name>
 <value>/mnt/disk1/yarn/dfs/name</value>
 </property>
+
 <property>
+<!-- 真正的datanode数据保存路径，可以写多块硬盘，逗号分隔.把这些位置分散在每个节点上的所有磁盘上可以实现磁盘 I/O 平衡，因此会显著改进磁盘 I/O 性能。  -->
 <name>dfs.datanode.data.dir</name>
 <value>/mnt/disk1/yarn/dfs/data</value>
 </property>

@@ -1,0 +1,390 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-09-29T21:33:14+08:00
+
+====== hadoop-2.2. hdfs-site.xml 配置说明 ======
+创建日期 星期五 29 九月 2017
+
+ <configuration>
+
+   <property>
+
+   <name>dfs.cluster.administrators</name>
+
+   <value> hdfs</value>
+
+<!-- HDFS 超级管理员用户 -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.block.access.token.enable</name>
+
+   <value>true</value>
+
+<!-- 是否开启 token 访问验证 -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.datanode.failed.volumes.tolerated</name>
+
+   <value>0</value>
+
+<!-- 能够导致DN挂掉的坏硬盘最大数，默认0就是只要有1个硬盘坏了，DN就会shutdown -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.replication.max</name>
+
+   <value>50</value>
+
+<!-- 有时dn临时故障恢复后会导致数据超过默认备份数。复制份数的最多数，通常没什么用，可以不用写配置文件里。 -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.datanode.du.reserved</name>
+
+   <value>1073741824</value>
+
+<!-- 每块磁盘所保留的空间大小，需要设置一些，主要是给非hdfs文件使用，默认是不保留，0字节 -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.blockreport.initialDelay</name>
+
+   <value>120</value>
+
+<!-- 推迟第一个 block报告在几秒钟内 -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.datanode.data.dir</name>
+
+   <value>file:///data/hadoop/hdfs/dn</value>
+
+<!-- 真正的datanode数据保存路径，可以写多块硬盘，逗号分隔.把这些位置分散在每个节点上的所有磁盘上可以实现磁盘 I/O 平衡，因此会显著改进磁盘 I/O 性能。  -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.client.read.shortcircuit</name>
+
+   <value>true</value>
+
+ </property>
+
+   <property>
+
+   <name>dfs.datanode.max.transfer.threads</name>
+
+   <value>4096</value>
+
+<!-- 指定datanode的最大数量的线程用于传输数据。默认 4096 -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.namenode.http-address</name>
+
+   <value>hadoop01:50070</value>
+
+<!--namenode web UI-->
+
+ </property>
+
+   <property>
+
+   <name>dfs.client.read.shortcircuit.streams.cache.size</name>
+
+   <value>4096</value>
+
+<!-- 在客户端读取前会创建一个FileinputStreamCache，就是由前两个参数控制大小和过期时间,
+
+dfs.client.read.shortcircuit.streams.cache.size和dfs.client.read.shortcircuit.streams.cache.expiry.ms -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.namenode.avoid.write.stale.datanode</name>
+
+   <value>true</value>
+
+<!-- 表明是否要避免写为“过时”的心跳消息尚未收到的NameNode超过指定的时间间隔数据节点。写操作将避免使用陈旧的数据节点，除非多数据节点的配置比例
+
+（dfs.namenode.write.stale.datanode.ratio）被标记为失效。见dfs.namenode.avoid.read.stale.datanode为读取一个类似的设置。 -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.namenode.avoid.read.stale.datanode</name>
+
+   <value>true</value>
+
+ </property>
+
+   <property>
+
+   <name>dfs.namenode.stale.datanode.interval</name>
+
+   <value>30000</value>
+
+<!-- 默认时间间隔一个datanode标记为“down机”,即。 ,如果 namenode没有接到一个datanode心跳超过这个时间间隔,datanode将标记为“过期”。 过期的间隔不能太小 (默认值是3倍 心跳间隔)-->
+
+<!--dfs.client.read.shortcircuit.streams.cache.size和dfs.client.read.shortcircuit.streams.cache.expiry.ms
+
+以及dfs.client.read.shortcircuit.skip.checksum和dfs.client.read.shortcircuit.buffer.size.其中，
+
+在客户端读取前会创建一个FileinputStreamCache，就是由前两个参数控制大小和过期时间的，其中key就是Datanode+block；
+
+后两个参数就是决定是否跳过校验以及校验的块大小.-->
+
+ </property>
+
+   <property>
+
+   <name>dfs.permissions.enabled</name>
+
+   <value>true</value>
+
+<!-- 在HDFS中启用权限检查 TRUE|FALSE。-->
+
+ </property>
+
+   <property>
+
+   <name>dfs.datanode.ipc.address</name>
+
+   <value>0.0.0.0:8010</value>
+
+<!--DN的IPC监听端口，写0的话监听在随机端口通过心跳传输给NN -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.namenode.name.dir</name>
+
+   <value>file:///data/hadoop/hdfs/nn</value>
+
+<!-- NN所使用的元数据保存，一般建议在nfs上保留一份，作为1.0的HA方案使用，也可以在一台服务器的多块硬盘上使用 -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.journalnode.http-address</name>
+
+   <value>0.0.0.0:8480</value>
+
+<!-- JournalNode web UI监听。 如果端口是0,那么服务器将启动将自定义端口。 -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.heartbeat.interval</name>
+
+   <value>3</value>
+
+<!-- DN的心跳检测时间间隔 3 秒 -->
+
+   </property>
+
+   <property>
+
+   <name>dfs.datanode.data.dir.perm</name>
+
+   <value>750</value>
+
+<!-- datanode所使用的本地文件夹的路径权限，默认755 -->
+
+ </property>
+
+   <property>
+
+   <name>fs.permissions.umask-mode</name>
+
+   <value>022</value>
+
+<!-- 创建文件和目录使用umask值。 -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.datanode.balance.bandwidthPerSec</name>
+
+   <value>6250000</value>
+
+<!-- 每个datanode指定的最大数量的带宽,每秒的字节数。-->
+
+ </property>
+
+   <property>
+
+   <name>dfs.namenode.accesstime.precision</name>
+
+   <value>0</value>
+
+<!-- HDFS文件的访问时间精确值。 默认值是1小时。 设置的值为0禁用HDFS的访问时间。-->
+
+ </property>
+
+   <property>
+
+   <name>dfs.namenode.write.stale.datanode.ratio</name>
+
+   <value>1.0f</value>
+
+<!-- 当总datanodes陈旧datanodes数量的比率明显 超过这个比例,停止避免写入失效节点，防止出现问题。-->
+
+ </property>
+
+ <property>
+
+   <name>dfs.namenode.checkpoint.dir</name>
+
+   <value>file:///data/hadoop/hdfs/snn</value>
+
+<!-- secondary namenode 节点存储 checkpoint 文件目录-->
+
+ </property>
+
+ <property>
+
+   <name>dfs.journalnode.edits.dir</name>
+
+   <value>/grid/0/hdfs/journal</value>
+
+ </property>
+
+   <property>
+
+   <name>dfs.blocksize</name>
+
+   <value>134217728</value>
+
+<!-- 2.X 版本默认值：134217728 说明： 这个就是hdfs里一个文件块的大小了，默认128M；太大的话会有较少map同时计算，
+
+太小的话也浪费可用map个数资源，而且文件太小namenode就浪费内存多。对于较大集群，可设为256MB，根据需要进行设置。-->
+
+ </property>
+
+   <property>
+
+   <name>dfs.replication</name>
+
+   <value>3</value>
+
+<!-- hdfs数据块的复制份数，默认3，理论上份数越多跑数速度越快，但是需要的存储空间也更多。有钱人可以调5或者6 -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.block.local-path-access.user</name>
+
+   <value>hbase</value>
+
+ </property>
+
+   <property>
+
+   <name>dfs.datanode.address</name>
+
+   <value>0.0.0.0:50010</value>
+
+<!-- DN的服务监听端口，端口为0的话会随机监听端口，通过心跳通知NN -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.datanode.http.address</name>
+
+   <value>0.0.0.0:50075</value>
+
+<!-- DN的tracker页面监听地址和端口 -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.https.namenode.https-address</name>
+
+   <value>c6401.ambari.apache.org:50470</value>
+
+<!-- NN的HTTPS的tracker页面监听地址和端口 -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.webhdfs.enabled</name>
+
+   <value>true</value>
+
+<!-- 使WebHDFS Namenodes和Datanodes(REST API)。-->
+
+ </property>
+
+   <property>
+
+   <name>dfs.namenode.handler.count</name>
+
+   <value>100</value>
+
+<!--NN启动后展开的线程数。-->
+
+ </property>
+
+   <property>
+
+   <name>dfs.namenode.secondary.http-address</name>
+
+   <value>hadoop02:50090</value>
+
+<!-- secondary name node web 监听端口 -->
+
+ </property>
+
+   <property>
+
+   <name>dfs.permissions.superusergroup</name>
+
+   <value>hdfs</value>
+
+ </property>
+
+   <property>
+
+   <name>dfs.namenode.safemode.threshold-pct</name>
+
+   <value>1.0f</value>
+
+ </property>
+
+   <property>
+
+   <name>dfs.domain.socket.path</name>
+
+   <value>/var/lib/hadoop-hdfs/dn_socket</value>
+
+ </property>
+
+ </configuration>
