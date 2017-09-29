@@ -60,9 +60,6 @@ Creation-Date: 2017-09-29T19:54:52+08:00
 
 3.修改yarn-site.xml
 
-
-
-
 <configuration> 
 <!-- Site specific YARN configuration properties --> 
 <property> 
@@ -147,7 +144,20 @@ YARN001
 
 至此Hadoop配置工作告一段落。
 
-6. 分发配置  scp –r /usr/hadoop root@hadoopnode1 :/usr/，将hadoop配置分发至hadoopnode1节点计算机。
+6.hadoop-env.sh
+
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.131-2.b11.el7_3.x86_64/jre
+
+即与系统的环境变量JAVA_HOME保持一致。
+
+找一个国内的Hadoop镜像站点，下载hadoop后，解压到指定目录（本示例解压到：/usr/hadoop），然后打开文件/etc/profile，并在文件最后添加：
+
+export HADOOP_HOME=/usr/hadoop  
+export PATH=$PATH:$HADOOP_HOME/bin
+
+
+
+7. 分发配置  scp –r /usr/hadoop root@hadoopnode1 :/usr/，将hadoop配置分发至hadoopnode1节点计算机。
 
 
 
