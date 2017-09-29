@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-09-29T19:59:24+08:00
+
+====== 降级软件 ======
+创建日期 星期五 29 九月 2017
+
+最近升级系统后CURL出现段错误。只好做版本回退。
+1.在 /var/cache/pacman/pkg/ 目录查是否有历史版本，如果有就简单了。pacman -U就可以解决
+2.如果没有历史包，则安装软件https://aur4.archlinux.org/packages/downgrade 通过它下载到需要的包
+3.在 /etc/pacman.conf 中修改以下行。IgnorePkg = curl 防止下次更新时再次将此软件更新
