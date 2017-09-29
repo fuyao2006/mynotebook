@@ -59,6 +59,10 @@ Creation-Date: 2017-09-29T19:54:52+08:00
 </configuration>
 
 3.修改yarn-site.xml
+
+
+
+
 <configuration> 
 <!-- Site specific YARN configuration properties --> 
 <property> 
@@ -70,6 +74,30 @@ Creation-Date: 2017-09-29T19:54:52+08:00
 <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
 <value>org.apache.hadoop.mapred.ShuffleHandler</value>
 </property>
+
+以下非必须
+
+<property>    
+  <name>yarn.resourcemanager.address</name>    
+  <value>hadoop-host:18040</value>    
+</property>    
+<property>    
+  <name>yarn.resourcemanager.scheduler.address</name>    
+  <value>hadoop-host:18030</value>    
+</property>    
+<property>    
+  <name>yarn.resourcemanager.webapp.address</name>    
+  <value>hadoop-host:18088</value>    
+</property>    
+<property>    
+  <name>yarn.resourcemanager.resource-tracker.address</name>    
+  <value>hadoop-host:18025</value>    
+</property>    
+<property>    
+  <name>yarn.resourcemanager.admin.address</name>    
+  <value>hadoop-host:18141</value>    
+</property>    
+<property>    
 
 
 </configuration>
@@ -109,6 +137,25 @@ Creation-Date: 2017-09-29T19:54:52+08:00
 10.10.11.254 hadoopnode1
 ::1         localhost
 
+masters文件：配置主节点ip或者host 同slaves 可以不配置
+
 修改slaves
-在slaves文件中添加你的节点ip或者host：每行一个主机名或ip
+在slaves文件中添加你的节点ip或者host：每行一个主机名或ip（集群的全部包含主机和从机）
 YARN001
+
+如果在slaves文件里面没有包含Hadoop主机IP，那么启动时会只有一个datanode.
+
+至此Hadoop配置工作告一段落。
+
+6. 分发配置  scp –r /usr/hadoop root@hadoopnode1 :/usr/，将hadoop配置分发至hadoopnode1节点计算机。
+
+
+
+
+
+
+
+
+
+
+
