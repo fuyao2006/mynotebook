@@ -72,8 +72,11 @@ Creation-Date: 2017-09-29T19:54:52+08:00
 <value>org.apache.hadoop.mapred.ShuffleHandler</value>
 </property>
 
-以下非必须
+  
+         
 
+以下非必须
+<!--指定Yarn的老大(ResourceManager)的地址-->     
 <property>    
   <name>yarn.resourcemanager.address</name>    
   <value>hadoop-host:18040</value>    
