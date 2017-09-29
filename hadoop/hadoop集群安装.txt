@@ -58,6 +58,33 @@ Creation-Date: 2017-09-29T19:54:52+08:00
 <name>yarn.nodemanager.aux-services</name> 
 <value>mapreduce_shuffle</value> 
 </property> 
+
+<property>
+<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+
+
 </configuration>
+
+4.hdfs-site.xml
+<property>
+<name>dfs.namenode.name.dir</name>
+<value>/mnt/disk1/yarn/dfs/name</value>
+</property>
+<property>
+<name>dfs.datanode.data.dir</name>
+<value>/mnt/disk1/yarn/dfs/data</value>
+</property>
+<property>
+
+<property>
+<name>dfs.replication</name>
+<value>1</value>
+</property>
+<property>
+<name>dfs.permissions</name>
+<value>false</value>
+</property>
 
 
