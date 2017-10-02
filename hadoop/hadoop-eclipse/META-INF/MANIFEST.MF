@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Created-By: 24.45-b08 (Oracle Corporation)
+Bundle-ClassPath: classes/,   lib/hadoop-mapreduce-client-core-2.6.0.j
+ ar,  lib/hadoop-mapreduce-client-common-2.6.0.jar,  lib/hadoop-mapred
+ uce-client-jobclient-2.6.0.jar,  lib/hadoop-auth-2.6.0.jar,  lib/hado
+ op-common-2.6.0.jar,  lib/hadoop-hdfs-2.6.0.jar,  lib/protobuf-java-2
+ .5.0.jar,  lib/log4j-1.2.17.jar,  lib/commons-cli-1.2.jar,  lib/commo
+ ns-configuration-1.6.jar,  lib/commons-httpclient-3.0.1.jar,  lib/com
+ mons-lang-2.6.jar,    lib/commons-collections-3.2.1.jar,    lib/jacks
+ on-core-asl-1.9.13.jar,  lib/jackson-mapper-asl-1.9.13.jar,  lib/slf4
+ j-log4j12-1.7.5.jar,  lib/slf4j-api-1.7.5.jar,  lib/guava-11.0.2.jar,
+   lib/netty-3.6.2.Final.jar,  lib/htrace-core-3.0.4.jar
+Bundle-ManifestVersion: 2
+Bundle-Name: MapReduce Tools for Eclipse
+Bundle-SymbolicName: org.apache.hadoop.eclipse;singleton:=true
+Bundle-Version: 0.18
+Bundle-Activator: org.apache.hadoop.eclipse.Activator
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.jd
+ t.launching,org.eclipse.debug.core,org.eclipse.jdt,org.eclipse.jdt.co
+ re,org.eclipse.core.resources,org.eclipse.ui.ide,org.eclipse.jdt.ui,o
+ rg.eclipse.debug.ui,org.eclipse.jdt.debug.ui,org.eclipse.core.express
+ ions,org.eclipse.ui.cheatsheets,org.eclipse.ui.console,org.eclipse.ui
+ .navigator,org.eclipse.core.filesystem,org.apache.commons.logging
+Eclipse-LazyStart: true
+Bundle-Vendor: Apache Hadoop
+
