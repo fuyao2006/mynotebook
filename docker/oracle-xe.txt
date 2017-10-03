@@ -1,0 +1,44 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-10-03T16:10:19+08:00
+
+====== oracle-xe ======
+创建日期 星期二 03 十月 2017
+
+放上这dockerfile的主要目的是为了看清它是怎样创建的。
+
+然后，pull一个已经装好oracle xe的image。
+
+docker pull alexeiled/docker-oracle-xe-11g
+
+也可以到我的小站 http://www.dockerpool.com%E4%B8%8A%E4%B8%8B%E8%BD%BD
+
+命令如下:
+
+docker  pull dl.dockerpool.com:5000/alexeiled/docker-oracle-xe-11g
+
+
+用新下载的image启动一个oracle容器,打开22 1521 8080 端口
+
+docker run -d -p 22:22 -p 1521:1521 -p 8080:8080 alexeiled/docker-oracle-xe-11g
+
+下面是一些容器的基本信息：
+
+oracle：	 	 
+ 	sid	xe
+ 	system	oracle
+操作系统：	 	 
+ 	root 	admin
+ 	 	 
+
+这样我们就能用这个容器来进行开发了，比如一个项目需要3个oracle 服务器：
+
+docker run -d -p 101:22 -p 1521:1521 -p 8080:8080  --name oracle1 alexeiled/docker-oracle-xe-11g
+
+docker run -d -p 102:22 -p 1522:1521 -p 8081:8080  --name oracle2 alexeiled/docker-oracle-xe-11g
+
+docker run -d -p 103:22 -p 1523:1521 -p 8082:8080  --name oracle3 alexeiled/docker-oracle-xe-11g
+
+启动脚本也可以简单的写成 docker start oracle1 oracle2 oracle3
+
+这对于快速搭建带oracle的开发环境还是有些益处的。
