@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-10-09T22:00:49+08:00
+
+====== 类型 ======
+创建日期 星期一 09 十月 2017
+
+byte a;
+a=100;// 正确
+a=300;// 错误
+
+a=(byte)0b11000001;
+int b;
+b=0b11000001;
