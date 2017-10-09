@@ -57,7 +57,33 @@ break;
 case 值2:
 代码
 break;
-defa
+default :
+}
+
+whlie(条件)
+{代码块}
+
+do
+{代码块}
+whlie{条件}
+
+
+for(变量初始化或定义并初始化;条件;变化)
+{语句}
+
+
+break
+continue
+
+
+
+
+
+
+
+
+
+
 
 
 
