@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-10-09T22:38:24+08:00
+
+====== 基础 ======
+创建日期 星期一 09 十月 2017
+
+注释
+// 当行
+/* */ 多行
+/** */ 文档注释

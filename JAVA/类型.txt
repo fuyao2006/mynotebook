@@ -24,7 +24,9 @@ byte-short-int-long-float-double
 char-int
 从前往后自动转换
 
-float a=33.0; //错误
+float a=33.0; //错误 默认是double
 float a=33.0f;//正确
 float a=33;//正确
 
+long a=3333333333333333;//错误 默认是int，超出了int的范围
+long a=3333333333333333l;//正确
