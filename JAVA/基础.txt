@@ -13,6 +13,8 @@ Creation-Date: 2017-10-09T22:38:24+08:00
 
 
 运算符
+
+
 +  +=
 - -=
 * *=
@@ -37,3 +39,33 @@ Creation-Date: 2017-10-09T22:38:24+08:00
 ==和!=适用于所有的基本数据类型，其他关系运算符不适用于boolean，因为boolean值只有true和false，比较没有任何意义。
 if (true>false) //错误
 ==和!=也适用于所有对象，可以比较对象的引用是否相同
+C语言中，非0就是true，0就是false，然而这个规则不适用于Java，Java的int不能自动转为boolean。参考while(true){} 而不是while(1){}。
+
+
+控制语句
+
+if(条件)
+{语句}
+else
+{语句}
+
+swith(表达式)
+{
+case 值1：
+代码
+break;
+case 值2:
+代码
+break;
+defa
+
+
+
+
+}
+
+
+
+
+
+
