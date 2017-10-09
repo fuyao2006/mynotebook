@@ -12,4 +12,9 @@ a=300;// 错误
 a=(byte)0b11000001;
 int b;
 b=0b11000001;
- 整型
+ 整型默认是int
+浮点默认是double
+
+
+
+byte和short 可以与int 自动转换  不溢出的情况下 但是short 不能直接转为byte
