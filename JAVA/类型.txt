@@ -5,6 +5,8 @@ Creation-Date: 2017-10-09T22:00:49+08:00
 ====== 类型 ======
 创建日期 星期一 09 十月 2017
 
+整数默认是int 浮点数默认是double
+
 byte a;
 a=100;// 正确
 a=300;// 错误
@@ -15,6 +17,14 @@ b=0b11000001;
  整型默认是int
 浮点默认是double
 
+byte和short 可以与int 自动互相转换  不溢出的情况下 但是short 不能直接转为byte
+char 不能直接转换为short
 
+byte-short-int-long-float-double
+char-int
+从前往后自动转换
 
-byte和short 可以与int 自动转换  不溢出的情况下 但是short 不能直接转为byte
+float a=33.0; //错误
+float a=33.0f;//正确
+float a=33;//正确
+
