@@ -41,6 +41,13 @@ if (true>false) //错误
 ==和!=也适用于所有对象，可以比较对象的引用是否相同
 C语言中，非0就是true，0就是false，然而这个规则不适用于Java，Java的int不能自动转为boolean。参考while(true){} 而不是while(1){}。
 
+位运算符
+&按位与
+|按位
+
+
+
+
 
 控制语句
 

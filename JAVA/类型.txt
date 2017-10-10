@@ -22,7 +22,7 @@ char 不能直接转换为short
 
 byte-short-int-long-float-double
 char-int
-从前往后自动转换，混合运算是 自动提升为高等级的类型，
+从前往后自动转换，混合运算是 自动提升为高等级的类型，运算遵循运算符的优先级  'a'+7+"hello" 与 "hello"+7+'a'
 sting 类型比其他的等级高
 
 
