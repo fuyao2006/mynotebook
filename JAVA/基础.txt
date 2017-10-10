@@ -77,7 +77,7 @@ if(条件)
 else
 {语句}
 
-swith(表达式)
+swith(表达式)   值只能是byte/short/char/int/string/枚举
 {
 case 值1：
 代码
@@ -100,7 +100,7 @@ for(变量初始化或定义并初始化;条件;变化)
 {语句}
 
 
-break
+break 默认跳出当前循环，
 continue
 
 
