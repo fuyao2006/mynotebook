@@ -14,6 +14,15 @@ Creation-Date: 2017-10-11T21:37:18+08:00
 }
 修饰符：public final abstract
  变量定义
-[修饰符] 类型 变量名[=默认值]
+[修饰符] 类型 变量名[=默认值] 
+修饰符：public protected private static final 
+
 方法定义
+[修饰符] 类型 方法名（形参列表）
+修饰符：public protected private static final  abstract
+
+构造器
+[修饰符] 构造器名（形参列表）
+修饰符：public protected private
+
 
