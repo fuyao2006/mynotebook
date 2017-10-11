@@ -1,0 +1,116 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-10-11T20:39:27+08:00
+
+====== 类 ======
+创建日期 星期三 11 十月 2017
+修饰符
+{{~/图片/document-uid79144labid1072timestamp1434941168916.png}}
+
+this 关键字
+
+我们在书写代码的过程中常常会用到this关键字，this关键字代表当前对象。使用this.属性操作当前对象的属性，this.方法调用当前对象的方法。
+
+ 
+
+内部类
+
+
+可以将一个类的定义放在另一个类的定义内部，这就是内部类。而包含内部类的类被称为外部类。
+
+内部类的主要作用如下：
+
+内部类提供了更好的封装，可以把内部类隐藏在外部类之内，不允许同一个包中的其他类访问该类
+
+内部类的方法可以直接访问外部类的所有数据，包括私有的数据
+
+内部类所实现的功能使用外部类同样可以实现，只是有时使用内部类更方便
+
+内部类允许继承多个非接口类型（具体将在以后的内容进行讲解）
+
+
+成员内部类
+
+package com.shiyanlou;
+
+//外部类People
+public class People {
+	private String name = "LiLei";         //外部类的私有属性
+	//内部类Student
+	public class Student {
+		String ID = "20151234";               //内部类的成员属性
+		//内部类的方法
+		public void stuInfo(){
+			System.out.println("访问外部类中的name：" + name);
+			System.out.println("访问内部类中的ID：" + ID);
+		}
+	}
+
+	//测试成员内部类
+	public static void main(String[] args) {
+		People a = new People();     //创建外部类对象，对象名为a
+		Student b = a.new Student(); //使用外部类对象创建内部类对象，对象名为b
+		// 或者为 People.Student b = a.new Student();
+		b.stuInfo();   //调用内部对象的suInfo方法
+	}
+}
+
+
+
+Student 类相当于 People 类的一个成员变量，所以 Student 类可以使用任意访问修饰符
+
+Student 类在 People 类里，所以访问范围在类里的所有方法均可以访问 People 的属性（即内部类里可以直接访问外部类的方法和属性，反之不行）
+
+定义成员内部类后，必须使用外部类对象来创建内部类对象，即 内部类 对象名 = 外部类对象.new 内部类();
+
+如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，可以使用 this 关键字
+
+如上述代码中：a.this
+
+
+静态内部类
+
+package com.shiyanlou;
+
+//外部类People
+public class People {
+	private String name = "LiLei";         //外部类的私有属性
+
+/*外部类的静态变量。
+Java 中被 static 修饰的成员称为静态成员或类成员。它属于整个类所有，而不是某个对象所有，即被类的所有对象所共享。静态成员可以使用类名直接访问，也可以使用对象名进行访问。
+*/
+	static String ID = "510xxx199X0724XXXX"; 
+
+	//静态内部类Student
+	public static class Student {
+		String ID = "20151234";               //内部类的成员属性
+		//内部类的方法
+		public void stuInfo(){
+			System.out.println("访问外部类中的name：" + (new People().name));
+			System.out.println("访问外部类中的ID：" + People.ID);
+			System.out.println("访问内部类中的ID：" + ID);
+		}
+	}
+
+	//测试成员内部类
+	public static void main(String[] args) {
+		Student b = new Student();   //直接创建内部类对象，对象名为b
+		b.stuInfo();                 //调用内部对象的suInfo方法
+	}
+}
+
+静态内部类是 static 修饰的内部类，这种内部类的特点是：
+
+静态内部类不能直接访问外部类的非静态成员，但可以通过 new 外部类().成员 的方式访问
+
+如果外部类的静态成员与内部类的成员名称相同，可通过类名.静态成员访问外部类的静态成员；如果外部类的静态成员与内部类的成员名称不相同，则可通过成员名直接调用外部类的静态成员
+
+创建静态内部类的对象时，不需要外部类的对象，可以直接创建 内部类 对象名= new 内部类();
+
+
+
+局部内部类
+
+局部内部类，是指内部类定义在方法和作用域内。
+
+
