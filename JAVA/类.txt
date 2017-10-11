@@ -211,7 +211,7 @@ interface Inner {
 
 
 
+继承
 
-
-
+class 子类 extends 父类
 
