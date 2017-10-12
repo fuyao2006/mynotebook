@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-10-12T21:35:17+08:00
+
+====== 面向对象2 ======
+创建日期 星期四 12 十月 2017
+
+常用的类方法
+toString() 方法 在使用println对象时 默认调用
+System.o
