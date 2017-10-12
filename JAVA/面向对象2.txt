@@ -92,3 +92,9 @@ retrun new Name(name);
 
 abstract与final和static不能一起使用
 
+public abstract class abc
+{
+public abstract void test();//无方法体
+
+}
+
