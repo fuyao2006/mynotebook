@@ -33,3 +33,9 @@ if(this.getIdStr().equals(personObj.getIdStr()))////值等价
 }
 return flase;
 }
+
+
+单例类
+1.构造器用private修饰
+2.用一个类成员缓存创建的实例//用static修饰
+3.类方法控制和创建实例
