@@ -68,15 +68,26 @@ final类
 public class Person
 {
 private final Name name;
+public Person(Name name)
+{
+this.name=new Name(name);
+}
 
-
+public Name getName()
+{
+retrun new Name(name);
+}
 
 
 }
 
 
 
-
+抽象类
+抽象类要使用abstract修饰 抽象方法也要用abstract修饰 
+抽象方法不能有函数体
+抽象类不能实例化
+抽象类可以包含成员/方法/初始化块/构造器/内部类5种，
 
 
 
