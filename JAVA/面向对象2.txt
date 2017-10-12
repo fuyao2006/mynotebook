@@ -49,3 +49,24 @@ final成员变量
 
 final形参
 不可以在方法中再次赋值
+final方法
+不可以重写，可以重载
+private修饰的子类中可以重新定义
+
+final类
+不可被继承
+
+不可变类
+8个包装类和String类
+
+自定义不可变类
+1.用private 和final修饰成员变量
+2.带参数的构造器，用于初始化成员变量
+3.成员变量仅有getter无setter
+4.如有必要重写hashCode()和equals()
+
+
+
+
+
+
