@@ -64,6 +64,16 @@ final类
 2.带参数的构造器，用于初始化成员变量
 3.成员变量仅有getter无setter
 4.如有必要重写hashCode()和equals()
+5.若成员变量是对象
+public class Person
+{
+private final Name name;
+
+
+
+
+}
+
 
 
 
