@@ -19,4 +19,17 @@ return “abc”
 
 ==比较的两个变量的值是否相等，不能用于比较两个引用
 
-equals方法 
+equals方法
+public boolean equals(Object obj)
+{
+if(this==obj)
+return ture;
+if(obj!=null and obj.getclass==Person.class) //类等价
+{
+Person personObj=(Person)obj;
+if(this.getIdStr().equals(personObj.getIdStr()))////值等价
+{return ture;}
+
+}
+return flase;
+}
