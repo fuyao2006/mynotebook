@@ -7,4 +7,16 @@ Creation-Date: 2017-10-12T21:35:17+08:00
 
 常用的类方法
 toString() 方法 在使用println对象时 默认调用
-System.o
+System.out.println(p)
+System.out.println(p.toString())  等价
+
+public String toString() {
+//
+return “abc”
+}
+
+== 和 equals方法 ==
+
+==比较的两个变量的值是否相等，不能用于比较两个引用
+
+equals方法 
