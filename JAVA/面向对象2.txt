@@ -144,6 +144,9 @@ public class Apple extends Fruit implements abc,a2
 外部类外部
 内部类的名字实际为：outclass.innerclass
 定义内部类变量 outclass.innerclass 变量名
-创建内部类实例
+创建非静态内部类实例
+new 外部类.new 内部类；
+创建静态内部类实例
+new 外部类.内部类();
 
 
