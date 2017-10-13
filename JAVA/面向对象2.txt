@@ -126,6 +126,11 @@ public class Apple extends Fruit implements abc,a2
 
 
 
+内部类
+1.内部类成员可以访问外部类的私有数据
+2.非静态内部类不能拥有
+
+
 
 
 
