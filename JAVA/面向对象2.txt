@@ -110,7 +110,14 @@ public abstract void test();//无方法体
 
 使用接口
 
-类实现接口
+类实现接口时 使用implements 关键字 当类同时继承父类时 需要放在类后面
+public class Apple extends Fruit implements abc,a2
+{}
+
+接口和抽象类的区别
+1.成员
+接口成员：静态变量/抽象方法/默认方法/类方法
+抽象类：
 
 
 
