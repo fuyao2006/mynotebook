@@ -139,6 +139,11 @@ public class Apple extends Fruit implements abc,a2
 静态成员只能访问外部类的静态成员
 外部类访问内部类时，必须用内部类名限制（静态成员）
 
-
+内部类的使用
+外部类内部（略）
+外部类外部
+内部类的名字实际为：outclass.innerclass
+定义内部类变量 outclass.innerclass 变量名
+创建内部类实例
 
 
