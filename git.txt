@@ -7,10 +7,12 @@ git init
 
 git remote 显示远程库
 git remote -v
-
+测试连接
+ssh -T git@github.com
 
 添加远程库
-git remote add origin git@github.com:michaelliao/learngit.git
+git remote add origin git@github.com:fuyao2006/mynotebook
+
 
 git fetch origin 添加远程有本地没有的
 
