@@ -1,7 +1,9 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2017-10-03T16:10:10+08:00
+docker network create hadoop
 
-====== docker ======
-创建日期 星期二 03 十月 2017
+docker build -t hadoop .
 
+
+docker ps -a
+docker search 
+
+docekr rm 
