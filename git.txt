@@ -1,3 +1,6 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
 ssh-keygen -t rsa -P '' -C "397400733@qq.com"
 -C 加注释
 
@@ -37,3 +40,8 @@ remote add origin git@github.com:xuefengyang /test.git
 命令添加远程仓库。 
 
 注意用户名前的冒号
+
+
+
+git pull origin master
+
