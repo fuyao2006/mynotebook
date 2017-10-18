@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-10-19T00:00:42+08:00
+
+====== 算法 ======
+创建日期 星期四 19 十月 2017
+
