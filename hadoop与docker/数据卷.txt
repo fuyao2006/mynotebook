@@ -31,4 +31,4 @@ docker  run --rm--volumes-from docker_old -v $(pwd):/backup tar cvf /backup/data
 4 恢复数据卷
 docker run -it --name abc -v /data ubuntu
 
-docker run --rm --volumes-fro
+docker run --rm --volumes-from abc -v $(pwd):/backup ubuntu tar xvf [[/backup/data.tar]] -C /
