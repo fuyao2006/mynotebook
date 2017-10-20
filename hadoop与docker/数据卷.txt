@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-10-21T00:28:19+08:00
+
+====== 数据卷 ======
+创建日期 星期六 21 十月 2017
+1.挂载本地文件夹
+docker run -it --name docker_name  -v /home/fuyao/docker_tmp:/data ubuntu  挂载本地到容器内的/data
+内容同步
+2.共享数据卷
+
+docker run -it --name docker_new --volumes-from docker_old ubuntu /bin/bash 
+即使原容器停止运行了 仍然可以共享
+
+docker run --name aa -v /data ubuntu echo "sss"  只运行了一下 其他的 均可共享他
+
