@@ -14,3 +14,13 @@ docker run -it --name docker_new --volumes-from docker_old ubuntu /bin/bash
 
 docker run --name aa -v /data ubuntu echo "sss"  只运行了一下 其他的 均可共享他
 
+删除容器数据卷不会删除
+
+本地文件夹不会随容器删除而删除
+
+只有在删除最后一个容器时数据卷才会删除
+
+
+3.备份
+
+docker  run --rm--volumes-from docker_old -v $(pwd):/backup tar cvf 
