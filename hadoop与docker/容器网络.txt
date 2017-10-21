@@ -10,3 +10,6 @@ pipework
 
 跨主机通信
 
+
+
+1.route -n 查看静态路由
