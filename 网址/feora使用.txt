@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-10-25T00:18:13+08:00
+
+====== feora使用 ======
+创建日期 星期三 25 十月 2017
+
+关闭防火墙
+
+Fedora 17及以前的版本关闭防火墙用systemctl stop iptables.service即可,其他linux版本用service stop iptables
+
+Fedora 18以上用一个名叫firewalld的玩意，所以需要：
+
+systemctl stop firewalld.service有必要的话就
+
+systemctl disable firewalld.service
+
+难怪配置的samba不通，mount -v -t nfs也报  mount.nfs: mount(2): No route to host

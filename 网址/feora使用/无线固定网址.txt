@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-10-25T00:58:02+08:00
+
+====== 无线固定网址 ======
+创建日期 星期三 25 十月 2017
+/etc/sysconfig/network-scripts/ifcfg-NETGEAR76
+HWADDR=5C:51:4F:BC:B8:8A
+ESSID=NETGEAR76
+MODE=Managed
+KEY_MGMT=WPA-PSK
+MAC_ADDRESS_RANDOMIZATION=default
+TYPE=Wireless
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=NETGEAR76
+UUID=bf68da37-d2a4-4c8a-a9d5-3dc94081b07d
+ONBOOT=yes
+DNS1=192.168.1.1
+IPADDR=192.168.1.7
+PREFIX=24
+GATEWAY=192.168.1.1
+
