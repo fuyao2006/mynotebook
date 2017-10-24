@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-10-24T21:54:15+08:00
+
+====== 网址 ======
+创建日期 星期二 24 十月 2017
+
+CDH
+最靠谱的CDH5安装指南
+http://archive.cloudera.com/cm5/redhat/7/x86_64/cm/
+
+http://www.jianshu.com/p/57179e03795f
