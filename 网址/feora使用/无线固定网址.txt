@@ -29,3 +29,32 @@ IPADDR=192.168.1.7
 PREFIX=24
 GATEWAY=192.168.1.1
 
+
+
+1.通过vim修改网卡配置文件的方式（*最常用*，图形界面，远程SSH，远程VNC等 都可以）
+修改 /etc/sysconfig/network-scripts 下的网卡配置文件
+下面贴出一个修改后的配置文件, 重要的配置项标红处理
+HWADDR=00:50:56:21:7F:78
+TYPE=Ethernet
+BOOTPROTO=static #固定ip,好像也可配置为none
+DEFROUTE=yes
+PEERDNS=yes
+PEERROUTES=yes
+IPV4_FAILURE_FATAL=yes
+IPV6INIT=no
+NAME="Auto eth3"
+UUID=430ffd48-32d7-4f5c-81e9-6d64d96fa058
+ONBOOT=yes
+LAST_CONNECT=1470729139
+IPADDR="10.200.22.224" #IP地址
+PREFIX=16 #设置子网掩码。表示16位掩码，即 255.255.0.0
+GATEWAY="10.200.0.1"      #网关
+DNS1="10.200.0.1" #DNS服务器 （一共配置了两个 DNS1 ,DNS2）   
+DNS2="202.106.0.20"
+
+PREFIX=16 也可以替换为 NETMASK="255.255.0.0" 效果是相同的
+
+记得重启网路服务
+service network restart
+
+2.图形界面
