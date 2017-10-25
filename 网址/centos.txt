@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-10-26T00:29:29+08:00
+
+====== centos ======
+创建日期 星期四 26 十月 2017
+centos桌面版环境打造 
+http://blog.csdn.net/u013870094/article/details/51051376
+
+CentOS7 Minimal 最小化安装后再安装GNOME图形界面
+http://www.linuxidc.com/Linux/2015-12/126690.htm
