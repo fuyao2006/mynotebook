@@ -1,0 +1,24 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-10-27T00:05:35+08:00
+
+====== ubuntu ======
+Created 星期五 27 十月 2017
+
+Linux下彻底卸载LibreOffice方法
+
+终端中输入命令：
+
+对所有基于 Debian 的发行版（Debian、Ubuntu、Kubuntu、Xubuntu、*buntu、Sidux 等）：
+
+sudo apt-get purge libreoffice?
+
+或
+
+sudo aptitude purge libreoffice?
+
+不要漏掉通配符“?”，否则无法清除/卸载全部 LibreOffice 软件包
+
+或者
+
+sudo apt-get remove --purge libreoffice*
