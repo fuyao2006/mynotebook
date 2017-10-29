@@ -5,7 +5,7 @@ FROM  java
 MAINTAINER   fuyao<fuyaoaa@qq.com>
 
 WORKDIR /root
-ENV HADOOP_VERSION=2.7.3
+ENV HADOOP_VERSION=2.8.1
 
 # install openssh-server, openjdk and wget
 #RUN apt-get update && apt-get install -y python-software-properties  software-properties-common
@@ -43,7 +43,7 @@ RUN mkdir -p ~/hdfs/namenode && \
     mkdir -p $HADOOP_HOME/logs &&\
     mkdir -p ~/tmp
 
-COPY hadoop-cluster-docker/config/* /home/fuyao/tmp/
+COPY config/* /home/fuyao/tmp/
 
 RUN cp ~/tmp/ssh_config ~/.ssh/config && \
     cp ~/tmp/hadoop-env.sh /usr/local/hadoop/etc/hadoop/hadoop-env.sh && \
