@@ -1,0 +1,25 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-11-01T20:59:49+08:00
+
+====== chrome浏览器安装指南 ======
+创建日期 星期三 01 十一月 2017
+
+Fedora/RHEL/openSUSE
+
+1.下载 google-chrome.repo 并保存
+
+$ wget https://repo.fdzh.org/chrome/google-chrome-mirrors.repo -P /etc/yum.repos.d/  # Fedora/RHEL  
+$ wget https://repo.fdzh.org/chrome/google-chrome-mirrors.repo -P /etc/zypp/repos.d/ # openSUSE  
+或使用 zypper ar URL NAME 添加源
+
+
+Debian/Ubuntu安装chrome
+
+1.下载 google-chrome.list 并保存
+
+$ wget https://repo.fdzh.org/chrome/google-chrome.list -P /etc/apt/sources.list.d/
+
+2.安装 Chrome
+
+$ apt-get install google-chrome-{stable,beta,unstable}

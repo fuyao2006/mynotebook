@@ -16,3 +16,5 @@ systemctl stop firewalld.service有必要的话就
 systemctl disable firewalld.service
 
 难怪配置的samba不通，mount -v -t nfs也报  mount.nfs: mount(2): No route to host
+
+
