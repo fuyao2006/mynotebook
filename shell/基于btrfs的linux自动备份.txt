@@ -1,0 +1,100 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-11-13T21:38:30+08:00
+
+====== 基于btrfs的linux自动备份 ======
+创建日期 星期一 13 十一月 2017
+
+背景：
+1.我们都会后悔，我的系统如何回到1分钟前，10分钟前，1小时前，几天前，甚至几个月前，现在有btrfs， 轻松回到从前
+2.总感觉linux系统，安装软件总是不能清洁卸载，下次安装是以前的配置还在，现在有btrfs，我们恢复到安装前
+3.数据无价，不小心把重要文件删除了，被黑了，没关系，btrfs可以恢复系统，降低损失
+4.系统崩溃了怎么办？使用任意linux系统安装盘，试用，根据快照名称修改fatab文件，重启系统恢复
+5.什么情况无法恢复呢？
+重新格式化硬盘分区或者删除所有快照
+6.缺点
+浪费空间
+
+准备：硬盘格式选择btrfs，安装linux系统，为了方便最好将系统安装到一个分区。有些系统要求boot不能安装到btrfs分区，没关系，装好系统后在btrfs分区新建一个卷将boot下文件拷贝过来，参考/etc/fstab
+设置boot挂载。实在不会就不用管这个boot分区
+
+#!/bin/bash
+name=`date +%Y%m%d%H%M%S`
+var_time=12
+var_hour=24
+var_day=14
+
+####建立快照
+###mount /dev/md126p3  /mnt/beifen_wenjian   
+cd /mnt/beifen_wenjian
+btrfs subvolume snapshot /mnt/beifen/@ start_root_$name
+btrfs subvolume snapshot /mnt/beifen/@home start_home_$name
+
+#####保存日志
+flag=0
+num=`tail -n1 beifen_day`
+let name2=$num/1000000
+let bak1=$name/1000000
+if (($name2!=$bak1))
+then
+echo $name >>beifen_day   #每天保存一个
+flag=1
+fi
+
+num=`tail -n1 beifen_hour`
+
+let name2=$num/10000
+let bak1=$name/10000
+if (($name2!=$bak1)) && (($flag==0))
+then
+echo $name >>beifen_hour   #每小时保存一个
+flag=1
+fi
+
+if(($flag==0))
+then
+	   	echo $name >>beifen_wenjian  ##实时保存
+fi
+
+###清理部分
+
+#sl=`ls -l|grep "boot"| wc -l`
+sl=`cat beifen_wenjian | wc -l`
+if (($sl>=$var_time))
+then
+name=`head -n1 beifen_wenjian`
+btrfs subvolume delete start_root_$name
+btrfs subvolume delete start_home_$name
+let sl=$sl-1
+tail -n $sl  beifen_wenjian >beifen_bak
+cat beifen_bak >beifen_wenjian
+
+fi
+
+sl=`cat beifen_day | wc -l`
+if (($sl>=$var_day))
+then
+name=`head -n1 beifen_day`
+btrfs subvolume delete start_root_$name
+btrfs subvolume delete start_home_$name
+let sl=$sl-1
+tail -n $sl  beifen_day >beifen_bak
+cat beifen_bak >beifen_day
+fi
+
+sl=`cat beifen_hour | wc -l`
+if (($sl>=$var_hour))
+then
+name=`head -n1 beifen_hour`
+btrfs subvolume delete start_root_$name
+btrfs subvolume delete start_home_$name
+let sl=$sl-1
+tail -n $sl  beifen_hour >beifen_bak
+cat beifen_bak >beifen_hour
+fi
+
+
+
+###将其放在/usr/bin    
+###alias yum  dnf  rpm  apt-get zypper pacman sudo 几个命令  安装命令alias 使安装软件前备份
+###并设置crontab 设置自动备份时间

@@ -18,3 +18,26 @@ systemctl disable firewalld.service
 难怪配置的samba不通，mount -v -t nfs也报  mount.nfs: mount(2): No route to host
 
 
+http://blog.csdn.net/fengxinlinux/article/details/72794967
+
+安装自动选择最快源插件
+
+可以帮助你选择最适合你下载系统更新的镜像站点，以便得到更快速度，它是YUM软件包管理的一个插件。
+在终端输入如下命令：
+sudo dnf install yum-fastestmirror
+安装完成后配置dnf，输入
+sudo gedit /etc/dnf/dnf.conf
+在配置文件的最后一行添加如下语句：
+fastestmirror=true
+
+
+更改selinux设置，关闭selinux：
+
+sudo vim /etc/selinux/config
+设置SELINUX=disabled 
+
+
+阻止更新内核
+/etc/dnf/dnf.conf下，我已经在main下添加了
+exclude=kernel*
+也就是dnf的时候，已经不会更新内核了
