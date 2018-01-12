@@ -1,0 +1,103 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-01-12T23:22:00+08:00
+
+====== ArchLinux安装完没有声音之解决办法 ======
+创建日期 星期五 12 一月 2018
+
+自己的机子是联想Y410p，之前安装完arch系统一直不能播放声音（桌面环境用的是i3-wm），自己又不懂得设置，今天对电脑进行配置，顺带把声音的问题解决了。
+
+ALSA参照arch官网，wiki传送门
+
+	高级 Linux 声音体系（Advanced Linux Sound Architecture，ALSA）是Linux中提供声音设备驱动的内核组件，用来代替原来的开放声音系统（Open Sound System，OSSv3）。除了声音设备驱动，ALSA还包含一个用户空间的函数库，以方便开发者通过高级API使用驱动功能，而不必直接与内核驱动交互。
+	Arch 默认的内核已经通过一套模块提供了 ALSA，不必特别安装。
+	udev会在系统启动时自动检测硬件，并加载相应的声音设备驱动模块。这时，你的声卡已经可以工作了，只是所有声道默认都被设置成静音了。
+
+解除各声道的静音
+
+目前版本的 ALSA 安装后，所有声道默认是静音的，必须手动解除。
+
+使用 alsamixer 的 ncurses 界面，配置十分简单：
+
+$ alsamixer
+
+此外，还可以在命令行下使用 amixer：
+
+$ amixer sset Master unmute
+
+	在 alsamixer 中，下方标有 MM 的声道是静音的，而标有 00 的通道已经启用。
+	使用 ← 和 → 方向键，选中 Master 和 PCM 声道。按下 m 键解除静音。使用 ↑ 方向键增加音量，直到增益值为0。该值显示在左上方 Item: 字段后。过高的增益值会导致声音失真。
+	要想得到完整的 5.1 或 7.1 环绕立体声，还得解除 Front、Surround、Center、LFE (subwoofer) 和 Side 这些声道的静音（上述名称是 Intel HD Audio 声卡使用的声道名，可能因设备不同而有所差异）。注意，仅有这些设置，系统不会自动将立体声源（多数音乐）提升（upmix）成环绕立体声。如果需要这些功能，请阅读#Upmixing/Downmixing。
+	要启用麦克风，切换至 Capture 选项卡，按下 F4，按下 空格 启用其中一个声道即可。
+	按下 Esc 键退出 alsamixer。
+
+问题是这样的
+
+使用alsamixer设置之后还是没有声音的，就使用第二种方法，出现error：
+
+amixer: Unable to find simple control 'Master',0
+
+表示不能设置，或是找不到声卡设备，我还以为安装完没有声卡驱动。
+
+用命令获取声卡的声卡ID和设备ID
+
+$ aplay -l
+**** List of PLAYBACK Hardware Devices ****
+card 0: HDMI [HDA Intel HDMI], device 3: HDMI 0 [HDMI 0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: HDMI [HDA Intel HDMI], device 7: HDMI 1 [HDMI 1]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: HDMI [HDA Intel HDMI], device 8: HDMI 2 [HDMI 2]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: PCH [HDA Intel PCH], device 0: ALC282 Analog [ALC282 Analog]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: PCH [HDA Intel PCH], device 1: ALC282 Digital [ALC282 Digital]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+
+声卡信息应该是没有问题的。
+
+在amixer配置音频
+
+	scontrols " show all mixer simple controls
+
+$ amixer scontrols
+Simple mixer control 'IEC958',0
+Simple mixer control 'IEC958',1
+Simple mixer control 'IEC958',2
+
+然而并没有“Master”，这种情况应该是默认声卡不对。
+
+	-c,--card N " select the card
+
+$ amixer -c 1 scontrols
+Simple mixer control 'Master',0
+Simple mixer control 'Headphone',0
+Simple mixer control 'Speaker',0
+Simple mixer control 'PCM',0
+Simple mixer control 'Mic',0
+Simple mixer control 'Mic Boost',0
+Simple mixer control 'IEC958',0
+Simple mixer control 'IEC958 Default PCM',0
+Simple mixer control 'Beep',0
+Simple mixer control 'Capture',0
+Simple mixer control 'Auto-Mute Mode',0
+Simple mixer control 'Internal Mic Boost',0
+
+问题就出现在默认声卡不对，解决问题的办法就是修改默认声卡。
+
+在刚才 aplay -l 里面选择声卡1,设备ID为0的声卡
+
+把下列配置添加到系统级别的 /etc/asound.conf 或用户级别的 ~/.asoundrc 文件。如果文件不存在，可以手动创建。其中的各个ID，请根据实际情况调整：
+
+defaults.pcm.card 1
+defaults.pcm.device 0
+defaults.ctl.card 1
+
+pcm选项决定用来播放音频的设备，而ctl选项决定那个声卡能够由控制工具（如 alsamixer）使用。
+
+上述配置在重启音频程序（如 mplayer）后立即生效。
