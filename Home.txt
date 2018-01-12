@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-01-08T22:51:06+08:00
+
+====== Home ======
+创建日期 星期一 08 一月 2018
+
+==> Before using VMware, you need to reboot or load vmw_vmci and vmmon kernel modules (in a terminal on root: modprobe -a vmw_vmci vmmon)
+==> You may also need to enable some of these services:
+- vmware-networks.service: to have network access in VMs
+- vmware-usbarbitrator.service: to connect USB devices inside VMs
+- vmware-hostd.service: to share VMs on the network
+
+vmware-workstation 的可选依赖
+	linux-headers: build modules against Arch kernel
