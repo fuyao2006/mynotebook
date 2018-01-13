@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-01-13T14:57:30+08:00
+
+====== zhongwen ======
+创建日期 星期六 13 一月 2018
+
+ 最简洁方法：
+
+	编辑/etc/locale.gen 文件，去掉zh_CN.UTF-8前面的#号
+
+	你可以设置整个系统的locale,编辑/etc/locale.conf,写下如下内容
+	LANG="zh_CN.UTF-8",但是不建议这样做，这样做在某些地方会
+
+	产生乱马
+
+	建议设置局部的locale,编辑~/.bashrc，添加：
+	export LANGUAGE="zh_CN:UTF-8"
