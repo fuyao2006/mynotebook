@@ -5,6 +5,8 @@ ssh-keygen -t rsa -P '' -C "397400733@qq.com"
 -C 加注释
 
 git clone https://github.com/fuyao2006/mynotebook
+git clone git@github.com:fuyao2006/mynotebook
+
 cd mynotebook
 git init
 
